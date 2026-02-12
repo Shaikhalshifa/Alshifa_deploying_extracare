@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story ❤️</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#ffe6ec;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* Falling hearts */
+.heart{
+  position:fixed;
+  top:-10px;
+  animation:fall linear infinite;
+  color:#ff4d6d;
+}
+@keyframes fall{
+  to{transform:translateY(100vh);}
+}
+
+section{padding:50px 20px; display:none;}
+h1,h2{color:#d6336c;}
+
+button{
+  padding:12px 20px;
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+button:hover{background:#d6336c;}
+
+input{
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+/* Love Letter */
+#letterBox{
+  display:none;
+  max-width:500px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Gallery */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+.gallery img{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* Popup viewer */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:999;
+}
+
+.popup img{
+  max-width:90%;
+  max-height:70%;
+  border-radius:12px;
+}
+
+.popup p{
+  color:white;
+  margin-top:15px;
+  font-size:18px;
+  padding:0 20px;
+}
+
+.bucket-list{
+  max-width:400px;
+  margin:auto;
+  text-align:left;
+}
+
+footer{
+  padding:20px;
+  background:#ffd6e0;
+}
+</style>
+
+<script>
+/* Hearts animation */
+function startHearts(){
+  setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+  },300);
+}
+
+function enterSite(){
+  document.getElementById("welcome").style.display="none";
+  document.getElementById("password").style.display="block";
+}
+
+function unlock(){
+  const pass=document.getElementById("pass").value;
+  if(pass==="1402"){
+    document.getElementById("password").style.display="none";
+    document.getElementById("success").style.display="block";
+
+    document.getElementById("bgMusic").play(); // start music
+  }else{
+    alert("Wrong date/password!");
+  }
+}
+
+
+function showMain(){
+  document.getElementById("success").style.display="none";
+  document.getElementById("main").style.display="block";
+}
+
+function openLetter(){
+  document.getElementById("letterBox").style.display="block";
+}
+
+/* Popup gallery */
+function openPopup(img){
+  document.getElementById("popupImg").src = img.src;
+  document.getElementById("popupText").innerText = img.dataset.msg;
+  document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+window.onload=startHearts;
+</script>
+
+</head>
+
+<body>
+
+<section id="welcome" style="display:block;">
+<h1>Welcome ❤️</h1>
+<p>Enter to see your surprise</p>
+<button onclick="enterSite()">Enter</button>
+</section>
+
+<section id="password">
+<h2>Enter Special Date</h2>
+<p>(Example: 1402)</p>
+<input id="pass" placeholder="Password">
+<br><br>
+<button onclick="unlock()">Unlock Love</button>
+</section>
+
+<section id="success">
+<h2>Yeyyyy! Now you are My Valentine ❤️</h2>
+<p>Kafi lucky ho Aap 😉</p>
+
+<img src="https://i.etsystatic.com/54697506/r/il/9a8425/6516938496/il_340x270.6516938496_f0vd.jpg"
+     style="width:250px;border-radius:12px;margin-top:15px;">
+
+<br><br>
+<button onclick="showMain()">Enter Love Page</button>
+</section>
+
+<div id="main" style="display:none;">
+
+<section style="display:block;">
+<h1>Happy Valentine's Day, Pookie ❤️</h1>
+<p>My heart beats only for you.</p>
+<p>My kucchi pucchiiii</p>
+<p>mere boondi ke laduuuu</p>
+<p>chalo ab chalke dikhao</p>
+</section>
+
+<section style="display:block;">
+<h2>💌 Love Letter</h2>
+<button onclick="openLetter()">Open Letter</button>
+
+<div id="letterBox">
+<p>
+My pookiee,<br><br>
+Aap meri zindagi ka woh hissa hain jo har din ko special bana deta hai. Aapki hasi, aapki baatein aur aapka saath — sab kuch mere liye kafi precious hai.
+<br>
+Aap paas hote hain toh har lamha khaas lagta hai,
+Aap door hote hue bhi aapka ehsaas saath lagta hai.
+
+Aur sirf aapke liye —
+Dil ki dhadkan banke dil mein rahenge aap,
+Jab tak saansein chalengi, mere pookiee rahenge aap.
+<br><br>
+ufff bana di maine shayari..say not bad hnt...hamesha aise pookiee bankar rehna..zara bhi 
+changes aaye toh will kill uuu..
+
+I miss uu mere boondi ke laduu..keep smiling...nose kisss
+Lots of love and kisses pookieeeeeee
+<br><br>
+Aapki Shifuu.
+</p>
+
+</div>
+</section>
+
+<section style="display:block;">
+<h2>📸 Our Memories</h2>
+<p>gently tap on each memories</p>
+
+<div class="gallery">
+<img src="Snapchat-2134408741.jpg"
+     data-msg="The day our smiles matched without trying ❤️"
+     onclick="openPopup(this)">
+
+<img src="IMG-20251029-WA0044.jpg"
+     data-msg="Allahhhh..look at this two cuties ❤️oo pookiee aise nhi dekho shifu ke tarf hnt.."
+     onclick="openPopup(this)">
+
+<img src="_MG_4027 (1).JPG"
+     data-msg="A memory I replay in my heart often."
+     onclick="openPopup(this)">
+
+<img src="IMG_20260116_222033_188.webp"
+     data-msg="Every picture has a story, and you're my favorite chapter."
+     onclick="openPopup(this)">
+
+<img src="file_00000000c4187207a0785170fda4ceec (1).png"
+     data-msg="Proof that happiness looks better with you."
+     onclick="openPopup(this)">
+
+<img src="IMG-20260104-WA0000.jpg"
+     data-msg="Moments with you feel like home."
+     onclick="openPopup(this)">
+</div>
+
+</section>
+
+<section style="display:block;">
+<h2>✨ Our Bucket List</h2>
+<ul class="bucket-list">
+<li>☐ Switzerland</li>
+<li>☐ Umrah
+
+</li>
+<li>☐ Beach sunset date</li>
+<li>☐ Surprise trips</li>
+<li>☐ Forever together</li>
+</ul>
+</section>
+
+<footer>
+Made with love 💕
+</footer>
+
+</div>
+
+<!-- Popup -->
+<div id="popup" class="popup" onclick="closePopup()">
+  <img id="popupImg">
+  <p id="popupText"></p>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="Udit_Narayan_Sadhana_Sargam_-_Pehla_Nasha_Pehla_Khumar_ApMuzix_Remix_(mp3.pm)-[AudioTrimmer.com].mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>
